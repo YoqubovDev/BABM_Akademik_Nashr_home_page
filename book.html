@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kitoblar - Akademnashr</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            color: #333;
+            background: #f9f9f9;
+        }
+
+        /* Header */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 80px;
+            background: white;
+            border-bottom: 1px solid #eee;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .logo img {
+            width: 50px;
+            height: auto;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #333;
+            font-size: 14px;
+            text-transform: uppercase;
+        }
+
+        nav a:hover {
+            color: #FF7500;
+        }
+
+        .btn-orange {
+            background: #FF7500;
+            color: white;
+            padding: 10px 25px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            text-transform: uppercase;
+            font-size: 13px;
+        }
+
+        .btn-orange:hover {
+            background: #e66900;
+        }
+
+        /* Page Title Section */
+        .page-title {
+            background: #252420;
+            color: white;
+            text-align: center;
+            padding: 60px 20px;
+        }
+
+        .page-title h1 {
+            font-size: 48px;
+            margin-bottom: 15px;
+        }
+
+        .page-title p {
+            font-size: 18px;
+            color: #ccc;
+        }
+
+        /* Filter Section */
+        .filter-section {
+            background: white;
+            padding: 30px 80px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .filter-controls {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .filter-controls label {
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .filter-controls select {
+            padding: 10px 20px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+            background: white;
+            cursor: pointer;
+        }
+
+        /* Books Grid Section */
+        .books-section {
+            padding: 60px 80px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .books-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .book-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+        }
+
+        .book-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+        }
+
+        .book-image {
+            width: 100%;
+            height: 350px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .book-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .book-demo-text {
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .book-info {
+            padding: 20px;
+        }
+
+        .book-category {
+            font-size: 12px;
+            color: #FF7500;
+            text-transform: uppercase;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        .book-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 8px;
+            color: #252420;
+        }
+
+        .book-author {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        .book-price {
+            font-size: 22px;
+            font-weight: bold;
+            color: #FF7500;
+            margin-bottom: 15px;
+        }
+
+        .book-btn {
+            width: 100%;
+            background: #FF7500;
+            color: white;
+            padding: 12px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+
+        .book-btn:hover {
+            background: #e66900;
+        }
+
+        /* Footer */
+        footer {
+            background: white;
+            padding: 60px 80px 30px;
+            border-top: 1px solid #eee;
+        }
+
+        .footer-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+            padding-bottom: 30px;
+            border-bottom: 2px solid #FF7500;
+        }
+
+        .footer-links {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column a {
+            text-decoration: none;
+            color: #666;
+            font-size: 13px;
+            line-height: 2;
+        }
+
+        .footer-column a:hover {
+            color: #FF7500;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-icons a {
+            display: inline-block;
+        }
+
+        .social-icons img {
+            width: 20px;
+            height: 20px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo">
+            <img src="img/logo/logo.svg" alt="logo">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="home.html">Bosh sahifa</a></li>
+                <li><a href="kitoblar.html" style="color: #FF7500;">Kitoblar</a></li>
+                <li><a href="#">Aksiyalar</a></li>
+                <li><a href="#">Kontaktlar</a></li>
+            </ul>
+        </nav>
+        <button class="btn-orange">Ro'yxatdan o'tish</button>
+    </header>
+
+    <!-- Page Title -->
+    <section class="page-title">
+        <h1>Kitoblar</h1>
+        <p>Bizning keng tanlangan kitoblar to'plamimiz</p>
+    </section>
+
+    <!-- Filter Section -->
+    <section class="filter-section">
+        <div class="filter-controls">
+            <label>Saralash:</label>
+            <select>
+                <option>Barcha kitoblar</option>
+                <option>Yangi kitoblar</option>
+                <option>Mashhur kitoblar</option>
+                <option>Arzon kitoblar</option>
+            </select>
+
+            <label>Kategoriya:</label>
+            <select>
+                <option>Barcha kategoriyalar</option>
+                <option>Dasturlash</option>
+                <option>Bolalar kitoblari</option>
+                <option>Ilmiy nashrlar</option>
+                <option>Badiiy adabiyot</option>
+                <option>Lug'atlar</option>
+            </select>
+        </div>
+    </section>
+
+    <!-- Books Grid -->
+    <section class="books-section">
+        <div class="books-grid">
+            <!-- Book 1 -->
+            <div class="book-card">
+                <div class="book-image">
+                    <img src="book1.jpg" alt="Python dasturlash">
+                </div>
+                <div class="book-info">
+                    <div class="book-category">Dasturlash</div>
+                    <h3 class="book-title">Python dasturlash asoslari</h3>
+                    <p class="book-author">Mark Lutz</p>
+                    <div class="book-price">75 000 so'm</div>
+                    <button class="book-btn">Sotib olish</button>
+                </div>
+            </div>
+
+            <!-- Book 2 -->
+            <div class="book-card">
+                <div class="book-image">
+                    <img src="book2.jpg" alt="JavaScript">
+                </div>
+                <div class="book-info">
+                    <div class="book-category">Dasturlash</div>
+                    <h3 class="book-title">JavaScript: The Good Parts</h3>
+                    <p class="book-author">Douglas Crockford</p>
+                    <div class="book-price">65 000 so'm</div>
+                    <button class="book-btn">Sotib olish</button>
+                </div>
+            </div>
+
+            <!-- Book 3 -->
+            <div class="book-card">
+                <div class="book-image">
+                    <img src="book3.jpg" alt="Bolalar uchun">
+                </div>
+                <div class="book-info">
+                    <div class="book-category">Bolalar kitoblari</div>
+                    <h3 class="book-title">Ertaklar to'plami</h3>
+                    <p class="book-author">Turli mualliflar</p>
+                    <div class="book-price">45 000 so'm</div>
+                    <button class="book-btn">Sotib olish</button>
+                </div>
+            </div>
+
+            <!-- Book 4 -->
+            <div class="book-card">
+                <div class="book-image">
+                    <img src="book4.jpg" alt="React">
+                </div>
+                <div class="book-info">
+                    <div class="book-category">Dasturlash</div>
+                    <h3 class="book-title">React.js asoslari</h3>
+                    <p class="book-author">Alex Banks</p>
+                    <div class="book-price">80 000 so'm</div>
+                    <button class="book-btn">Sotib olish</button>
+                </div>
+            </div>
+
+            <!-- Book 5 -->
+            <div class="book-card">
+                <div class="book-image">
+                    <img src="book5.jpg" alt="Matematika">
+                </div>
+                <div class="book-info">
+                    <div class="book-category">Ilmiy nashrlar</div>
+                    <h3 class="book-title">Oliy matematika</h3>
+                    <p class="book-author">N. Piskunov</p>
+                    <div class="book-price">55 000 so'm</div>
+                    <button class="book-btn">Sotib olish</button>
+                </div>
+            </div>
+
+            <!-- Book 6 -->
+            <div class="book-card">
+                <div class="book-image">
+                    <img src="book6.jpg" alt="Lug'at">
+                </div>
+                <div class="book-info">
+                    <div class="book-category">Lug'atlar</div>
+                    <h3 class="book-title">O'zbek-Ingliz lug'ati</h3>
+                    <p class="book-author">Redaksiya hay'ati</p>
+                    <div class="book-price">90 000 so'm</div>
+                    <button class="book-btn">Sotib olish</button>
+                </div>
+            </div>
+
+            <!-- Book 7 -->
+            <div class="book-card">
+                <div class="book-image">
+                    <img src="book7.jpg" alt="Web dizayn">
+                </div>
+                <div class="book-info">
+                    <div class="book-category">Dasturlash</div>
+                    <h3 class="book-title">HTML va CSS asoslari</h3>
+                    <p class="book-author">Jon Duckett</p>
+                    <div class="book-price">70 000 so'm</div>
+                    <button class="book-btn">Sotib olish</button>
+                </div>
+            </div>
+
+            <!-- Book 8 -->
+            <div class="book-card">
+                <div class="book-image">
+                    <img src="book8.jpg" alt="Badiiy adabiyot">
+                </div>
+                <div class="book-info">
+                    <div class="book-category">Badiiy adabiyot</div>
+                    <h3 class="book-title">O'tkan kunlar</h3>
+                    <p class="book-author">Abdulla Qodiriy</p>
+                    <div class="book-price">40 000 so'm</div>
+                    <button class="book-btn">Sotib olish</button>
+                </div>
+            </div>
+
+            <!-- Book 9 -->
+            <div class="book-card">
+                <div class="book-image">
+                    <img src="book9.jpg" alt="Node.js">
+                </div>
+                <div class="book-info">
+                    <div class="book-category">Dasturlash</div>
+                    <h3 class="book-title">Node.js dasturlash</h3>
+                    <p class="book-author">David Herron</p>
+                    <div class="book-price">85 000 so'm</div>
+                    <button class="book-btn">Sotib olish</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-top">
+            <div class="logo">
+                <img src="img/logo/logo.svg" alt="logo">
+            </div>
+            <div class="social-icons">
+                <a href="#"><img src="img/social_img/icon-telegram .svg" alt="telegram"></a>
+                <a href="#"><img src="img/social_img/icon-instagram.svg" alt="instagram"></a>
+                <a href="#"><img src="img/social_img/icon-facebook.svg" alt="facebook"></a>
+            </div>
+        </div>
+        
+        <div class="footer-links">
+            <div class="footer-column">
+                <ul>
+                    <li><a href="home.html">Bosh sahifa</a></li>
+                    <li><a href="#">Xizmatlar</a></li>
+                    <li><a href="#">Yangi kitob</a></li>
+                    <li><a href="#">Kontaktlar</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <ul>
+                    <li><a href="#">Ilmiy nashrlar</a></li>
+                    <li><a href="#">Ilmiy-ommabop nashr</a></li>
+                    <li><a href="#">Ma'rifiy nashrlar</a></li>
+                    <li><a href="#">Lug'atlar</a></li>
+                    <li><a href="#">Adabiy-badiiy nashrlar</a></li>
+                    <li><a href="#">Abituriyentlar uchun</a></li>
+                    <li><a href="#">Bolalar uchun</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <ul>
+                    <li><a href="#">Ko'p so'raladigan savollar</a></li>
+                    <li><a href="#">Yetkazib berish haqida</a></li>
+                    <li><a href="#">To'lov usullari haqida</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <ul>
+                    <li><a href="#">Bo'sh ish o'rinlari</a></li>
+                    <li><a href="#">Biz bilan bog'lanish</a></li>
+                    <li><a href="#">Maxfiylik nizomi</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

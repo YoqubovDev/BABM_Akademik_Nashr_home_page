@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Akademnashr</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            color: #333;
+        }
+
+        /* Header */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 80px;
+            background: white;
+            border-bottom: 1px solid #eee;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .logo span:first-child {
+            color: #333;
+        }
+
+        .logo span:last-child {
+            color: #FF7500;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #333;
+            font-size: 14px;
+            text-transform: uppercase;
+        }
+
+        .btn-orange {
+            background: #FF7500;
+            color: white;
+            padding: 10px 25px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            text-transform: uppercase;
+            font-size: 13px;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: #252420;
+            color: white;
+            display: flex;
+            align-items: center;
+            padding: 80px;
+            gap: 60px;
+        }
+
+        .hero-content {
+            flex: 1;
+        }
+
+        .hero-content h1 {
+            font-size: 42px;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero-content p {
+            font-size: 16px;
+            line-height: 1.6;
+            margin-bottom: 30px;
+            color: #ccc;
+        }
+
+        .hero-image {
+            flex: 1;
+            text-align: center;
+        }
+
+        .hero-image img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 80px;
+            background: white;
+        }
+
+        .features h2 {
+            font-size: 36px;
+            margin-bottom: 60px;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 50px;
+        }
+
+        .feature-item {
+            text-align: left;
+        }
+
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background: #FFE8D5;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+
+        .feature-icon img {
+            width: 35px;
+            height: 35px;
+            object-fit: contain;
+        }
+
+        .feature-item h3 {
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+
+        .feature-item p {
+            font-size: 14px;
+            line-height: 1.6;
+            color: #666;
+        }
+
+        /* Books Section */
+        .books-section {
+            background: #252420;
+            color: white;
+            display: flex;
+            align-items: center;
+            padding: 80px;
+            gap: 60px;
+        }
+
+        .books-content {
+            flex: 1;
+        }
+
+        .books-content h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        .books-content p {
+            font-size: 16px;
+            line-height: 1.6;
+            margin-bottom: 30px;
+            color: #ccc;
+        }
+
+        .books-image {
+            flex: 1;
+            text-align: center;
+        }
+
+        .books-image img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* Footer */
+        footer {
+            background: white;
+            padding: 60px 80px 30px;
+        }
+
+        .footer-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+            padding-bottom: 30px;
+            border-bottom: 2px solid #FF7500;
+        }
+
+        .footer-links {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-column h4 {
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column a {
+            text-decoration: none;
+            color: #666;
+            font-size: 13px;
+            line-height: 2;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-icons a {
+            font-size: 20px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo">
+            <img src="img/logo/logo.svg" alt="logo">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="home.html">Bosh sahifa</a></li>
+                <li><a href="book.html">Kitoblar</a></li>
+                <li><a href="#">Aksiyalar</a></li>
+                <li><a href="#">Kontaktlar</a></li>
+            </ul>
+        </nav>
+        <button class="btn-orange">Ro'yxatdan o'tish</button>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Pythonda dasturlash<br>asoslari</h1>
+            <p>Dasturlash asoslarini o'rganish uchun eng<br>
+            yaxshi yo'l bu Python. Python dunyodagi eng<br>
+            mashhur dasturlash tillaridan biri.</p>
+            <button class="btn-orange">Buyurtma berish</button>
+        </div>
+        <div class="hero-image">
+            <img src="img/main_img/python-book.svg" alt="kitob rasmi">
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <h2>Nega aynan<br>Akademnashr?</h2>
+        <div class="features-grid">
+            <div class="feature-item">
+                <div class="feature-icon">
+                    <img src="img/middle_icons/1_icon/feature-icon.svg" alt="Oson buyurtma ikoni">
+                </div>
+                <h3>Oson buyurtma qilish</h3>
+                <p>Akademnashr.uz saytidan o'zingizga<br>
+                yoqqan kitobni sodda usulda buyurtma<br>
+                qila olasiz.</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">
+                    <img src="img/middle_icons/2_icon/feature-icon.svg" alt="Eng sara kitoblar ikoni">
+                </div>
+                <h3>Eng sara kitoblar</h3>
+                <p>Akademnashr.uz saytida faqat<br>
+                sifatli kitoblar topasiz. Siz uchun<br>
+                qattiqqa kitoblarni topib berda</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">
+                    <img src="img/middle_icons/3_icon/feature-icon.svg" alt="Tez yetkazish ikoni">
+                </div>
+                <h3>Tez yetkazib berish</h3>
+                <p>O'zbekistonning istalgan joyiga 1 ish<br>
+                kuni ichida yetkazib berish xizmati bilan<br>
+                bizning jonikim qiling.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Books Section -->
+    <section class="books-section">
+        <div class="books-content">
+            <h2>Bolalar kitoblari uchun<br>ajoyib aksiya!</h2>
+            <p>Ertaklar, she'rlar, qiziqarli mashg'ulotlar yetakni<br>
+            bo'lgan kitoblar boshqa mashhur va yaxshi<br>
+            ko'riladi bo'lgan bo'lagan ta ko'p miqdordagi<br>
+                bolalar kitoblari ajoyib narxlarda!</p>
+            <button class="btn-orange">Buyurtma berish</button>
+        </div>
+        <div class="books-image">
+            <img src="img/children_books/sale-img.svg" alt="Bolalar kitoblari">
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-top">
+            <div class="logo">
+                <img src="img/logo/logo.svg" alt="logo">
+            </div>
+            <div class="social-icons">
+                <a href="#"><img src="img/social_img/icon-telegram .svg" alt="telegram"></a>
+                <a href="#"><img src="img/social_img/icon-instagram.svg" alt="instagram"></a>
+                <a href="#"><img src="img/social_img/icon-facebook.svg" alt="facebook"></a>
+            </div>
+        </div>
+        
+        <div class="footer-links">
+            <div class="footer-column">
+                <ul>
+                    <li><a href="home.html">Bosh sahifa</a></li>
+                    <li><a href="#">Xizmatlar</a></li>
+                    <li><a href="#">Yangi kitob</a></li>
+                    <li><a href="#">Kontaktlar</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <ul>
+                    <li><a href="#">Ilmiy nashrlar</a></li>
+                    <li><a href="#">Ilmiy-ommabop nashr</a></li>
+                    <li><a href="#">Ma'rifiy nashrlar</a></li>
+                    <li><a href="#">Lug'atlar</a></li>
+                    <li><a href="#">Adabiy-badiiy nashrlar</a></li>
+                    <li><a href="#">Abituriyentlar uchun</a></li>
+                    <li><a href="#">Bolalar uchun</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <ul>
+                    <li><a href="#">Ko'p so'raladigan savollar</a></li>
+                    <li><a href="#">Yetkazib berish haqida</a></li>
+                    <li><a href="#">To'lov usullari haqida</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <ul>
+                    <li><a href="home.html">Bo'sh ish o'rinlari</a></li>
+                    <li><a href="#">Biz bilan bog'lanish</a></li>
+                    <li><a href="#">Maxfiylik nizomi</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
