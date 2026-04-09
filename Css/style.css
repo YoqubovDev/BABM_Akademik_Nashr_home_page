@@ -1,6 +1,9 @@
 .site-header {
     background-color: #FFFFFF;
 }
+.sitenav-list{
+    list-style: none;
+}
 .site-link{
     color: #000000;
     text-decoration: none;
@@ -117,8 +120,21 @@
     background-color: #F8F8F8;
 
 }
+.site-footer ul{
+    list-style: none;
+}
 .footer-line{
    background-color: #25242080;
    height: 2px;
+
+}
+
+.site-footer-links a{
+    color:#252420;
+    text-decoration: none;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 100%;
+    /* text-transform: uppercase; */
 
 }
